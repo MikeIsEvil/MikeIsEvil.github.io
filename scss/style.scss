@@ -4,10 +4,11 @@
  * Variables
  ***************************************/
 
-$color-charcoal:    #293744;
-$color-blue:        #38C3FF;
-$color-orange:      #FF9742;
-$color-aqua:        #60F2ED;
+$color-charcoal:        #293744;
+$color-blue:            #38C3FF;
+$color-orange:          #FF9742;
+$color-aqua:            #60F2ED;
+$color-dark-orange:     darken($color: $color-orange, $amount: 25%);
 
 
 /***************************************
@@ -25,9 +26,31 @@ html * {
 body {
     font-size: 2em;
     font-family: 'Open Sans', sans-serif;
+    text-align: center;
+    line-height: 1.4;
     background-color: $color-charcoal;
     color: $color-aqua;
-    text-align: center;
+
+    em {
+        color: $color-aqua;
+        /*font-weight: bold;*/
+        font-style: normal;
+        font-family: 'Germania One', cursive;
+        text-transform: uppercase;
+    }
+    
+    a {
+        color: $color-orange;
+        text-decoration: none;
+    
+        &:hover,
+        &:focus {
+            color: $color-dark-orange;
+            text-decoration: underline 2px dotted $color-dark-orange;
+            text-underline-offset: 0.2em;
+            outline: none;
+        }
+    }
 
     .site-wrapper {
         max-width: 500px;
@@ -45,6 +68,7 @@ body {
                     font-weight: normal;
                     font-family: 'Germania One', cursive;
                     letter-spacing: 0.02em;
+                    line-height: 1;
                     color: $color-orange;
                 }
             }
@@ -59,14 +83,33 @@ body {
             padding: 1em;
         }
     }
-}
 
-em {
-    color: $color-aqua;
-    /*font-weight: bold;*/
-    font-style: normal;
-    font-family: 'Germania One', cursive;
-    text-transform: uppercase;
+    .form  {
+        .form__field-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin: 0.4em 0;
+
+            .form__label--fixed-width {
+                flex-basis: 7em;
+            }
+        }
+
+        .form__button {
+            padding: 0.25em 0.5em;
+            border: 1px solid white;
+            border-radius: 0.2em;
+            color: white;
+            background-color: $color-charcoal;
+
+            &.form__button--primary {
+                color: $color-charcoal;
+                background-color: $color-orange;
+                border: none;
+            }
+        }
+    }
 }
 
 @media only screen and (min-width: 500px) {
