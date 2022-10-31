@@ -112,6 +112,29 @@ body {
     }
 }
 
+.message {
+    margin: 1em 0;
+    padding: 0.8em 1.6em;
+    border-radius: 0.3em;
+    
+    &.message--info {
+        color: hsl(207, 100%, 30%);
+        background-color: hsl(207, 100%, 80%);;
+    }
+    &.message--success {
+        color: hsl(103, 100%, 20%);
+        background-color: hsl(103, 50%, 80%);
+    }
+    &.message--warning {
+        color: hsl(40, 100%, 34%);
+        background-color: hsl(40, 100%, 80%);
+    }
+    &.message--error {
+        color: hsl(9, 100%, 35%);
+        background-color: hsl(9, 50%, 85%);
+    }
+}
+
 @media only screen and (min-width: 500px) {
     body {
         .site-wrapper {
