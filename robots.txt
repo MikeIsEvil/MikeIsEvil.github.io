@@ -1,0 +1,4 @@
+# Sometimes interesting things are "hidden" in robots.txt files!
+# Saying that these items should be ignored by search engines often makes them VERY interesting to attackers!
+User-agent: *
+Disallow: /secret-login-page.html
