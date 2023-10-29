@@ -2,4 +2,6 @@
 layout: none
 permalink: .well-known/security.txt
 ---
-Being a public Github Pages website with no server-side activity, there shouldn't be any real security issues here!  :D  This is really a test of getting a security.txt file into a GH pages website.
+Being a public Github Pages website with no server-side activity, there shouldn't be any real security issues here!  :D
+
+This is really a test of getting a security.txt file into a GH pages website using the `permalink` metadata.
